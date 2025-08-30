@@ -1,57 +1,57 @@
 # proxy-maker
 
-A [node.js](https://nodejs.org) tool to generate PDFs with cardgame proxies for printing.
+Uma ferramenta em [node.js](https://nodejs.org) para gerar PDFs com proxies (de tcgs) para imprimir.
 
 ---
 
-## Dependencies
+## Dependências
 
-Have node installed, then run `npm install` in the project folder
+Tenha o Node instalado, então execute `npm install` na pasta do projeto.
 
---- 
+---
 
-## Usage
+## Uso
 
-1) You'll need a txt file with the list of cards you want to print in the following format:
+1 - Você vai precisar de um arquivo txt com a lista das cartas que deseja imprimir, no seguinte formato:
 
 ```
-3x card name 1
-4x anotherCard
+3x nome da carta 1
+4x outraCarta
 2x Beer Luffy
 ```
 
-2) You'll need a folder with the images, where for each `card name` in the list above you'll need a `card name.jpg` in the folder.
+2 - Você vai precisar de uma pasta com as imagens, onde para cada `nome da carta` na lista acima você deve ter um arquivo `nome da carta.jpg` na pasta.
 
-The names in the list must match file names in the folder.
-The extension doesn't matter (any image type will work).
-Leading/trailing spaces in the list are ignored.
+Os nomes na lista devem corresponder aos nomes dos arquivos na pasta.
+A extensão não importa (qualquer tipo de imagem funciona).
+Espaços antes/depois dos nomes na lista são ignorados.
 
-
-For the list in *#1* you could have a folder with:
+Para a lista do item *#1* você pode ter uma pasta com:
 ```
-card name 1.jpg
-anotherCard.png
+nome da carta 1.jpg
+outraCarta.png
 Beer Luffy.gif
 ```
 
-3) Run the script like this:
-`node proxy --list path/to/the/cardlist.txt --images path/to/the/image/folder`
+3 - Execute o script:
 
-By default it will generate the print at `./output.pdf` using A4 paper size and 300ppi.
+`node proxy --list caminho/para/a/lista.txt --images caminho/para/a/pasta/de/imagens`
 
-But you can also change those by passing other options:
+Por padrão, o PDF será gerado em `./output.pdf` usando papel A4 e 300ppi.
+
+Mas você também pode alterar isso passando outras opções:
 ```
---output path/to/where/you/want/the/output/file.pdf
---paper A3    (only A3 and A4 are currently supported, A4 is the default)
---ppi 150      (any resolution you want)
+--output caminho/para/onde/quer/o/arquivo.pdf
+--paper A3    (apenas A3 e A4 são suportados atualmente, A4 é o padrão)
+--ppi 150      (qualquer resolução que quiser)
 ```
 
 ---
 
 ## OPTCG Image Downloader
 
-There's also a script to download OPTCG images directly from the official website. 
-You'll need to have all names in your list as the card code, for instance:
+Também há um script para baixar imagens OPTCG diretamente do site oficial.
+Você precisa ter todos os nomes na sua lista como o código da carta, por exemplo:
 
 ```
 4xST28-002
@@ -60,8 +60,10 @@ You'll need to have all names in your list as the card code, for instance:
 4xOP06-100
 ```
 
-Then run:
-`node opDownloader --list path/to/the/list.txt --output path/to/a/folder`
+Daí é só rodar:
 
-You can then run the command to generate the pdf right after:
-`node proxy --list path/to/the/list.txt --images path/to/the/same/folder`
+`node opDownloader --list caminho/para/a/lista.txt --output caminho/para/uma/pasta`
+
+Você pode rodar o comando para gerar o PDF logo em seguida:
+
+`node proxy --list caminho/para/a/lista.txt --images caminho/para/a/mesma/pasta`
