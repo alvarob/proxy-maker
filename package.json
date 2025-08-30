@@ -1,0 +1,21 @@
+{
+  "name": "proxy-maker",
+  "version": "1.0.0",
+  "main": "proxy.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^3.2.0",
+    "command-line-args": "^6.0.1",
+    "sharp": "^0.34.3"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "description": ""
+}
